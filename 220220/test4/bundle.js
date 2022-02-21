@@ -16,21 +16,21 @@
 		return a;
 	}
 
-	let a$1 = {
-	    func: () => {
-	        console.log("It's an a-func...");
-	    },
-	    deadCode() {
-	        console.log("[a.js deadCode] Never been called here");
-	    }
+	let func$1 = () => {
+	    console.log("It's an a-func...");
 	};
 
-	var a$2 = /*#__PURE__*/Object.freeze({
+	let deadCode = () => {
+	    console.log("[a.js deadCode] Never been called here");
+	};
+
+	var a$1 = /*#__PURE__*/Object.freeze({
 		__proto__: null,
-		a: a$1
+		func: func$1,
+		deadCode: deadCode
 	});
 
-	var require$$0 = /*@__PURE__*/getAugmentedNamespace(a$2);
+	var require$$0 = /*@__PURE__*/getAugmentedNamespace(a$1);
 
 	// named exports
 	var b = {
