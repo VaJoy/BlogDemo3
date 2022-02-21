@@ -1,0 +1,6 @@
+{
+	"main": "index.js",
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "^21.0.1"
+	}
+}
