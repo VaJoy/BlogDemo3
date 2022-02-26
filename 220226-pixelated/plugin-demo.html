@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      float: left;
+      line-height: 0;
+      margin: 0 20px 20px 0;
+    }
+
+    li>img {
+      max-height: 180px;
+    }
+
+    div {
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li><img src="./assert/0.png" /></li>
+    <li><img src="./assert/1.png" /></li>
+    <li><img src="./assert/2.png" /></li>
+    <li><img src="./assert/3.png" /></li>
+  </ul>
+  <div>
+    <button id="generate">铺上马赛克</button>
+    <button id="remove">移除马赛克</button>
+  </div>
+
+
+  <script type="module">
+    import Mosaic from './mosaic.js';
+
+    let liElems = document.querySelectorAll('li');
+    let mosaicList = [];
+
+    document.querySelector('#generate').onclick = () => {
+      remove();
+      for (let i = 0; i < liElems.length; i++) {
+        let liElem = liElems[i];
+        let url = liElem.querySelector('img').src;
+        let mosaic = new Mosaic(url, liElem);
+        mosaicList.push(mosaic);
+      }
+    }
+
+    function remove() {
+      mosaicList.forEach((mosaic) => {
+        mosaic.remove();
+      });
+      mosaicList.length = 0;
+    }
+
+    document.querySelector('#remove').onclick = remove;
+
+  </script>
+</body>
+
+</html>
